@@ -1,27 +1,16 @@
+# React + Vite
 
-Assuming that you have [Maven](https://maven.apache.org/install.html) installed, you can run the project out-of-the-box from your terminal via
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-	mvn -pl client -am javafx:run
+Currently, two official plugins are available:
 
-from your project root (not from within the `client` folder!).
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
 
-Starting the client within your IDE (Eclipse/IntelliJ) requires setting up OpenJFX.
+## React Compiler
 
-First download (and unzip!) an [OpenJFX SDK](https://openjfx.io).
-Make sure that the download *matches your Java JDK version*.
+The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
 
-Then create a *run configuration* for the `Main` class and add the following *VM* commands (which, in IntelliJ, are hidden by default):
+## Expanding the ESLint configuration
 
-	--module-path="/path/to/javafx-sdk/lib"
-	--add-modules=javafx.controls,javafx.fxml,javafx.web
-
-Adjust the module path to *your* local download location and make sure you adapt the path
-to the `lib`(!) directory (not just the directory that you unzipped)...
-
-*Tip:* Windows paths are different, they uses `\` as path separator and starts with a drive letter like `C:`.
-
-*Tip:* Make sure not to forget the `/lib` at the end of the path.
-
-*Tip:* Double-check that the path is correct. If you receive abstract errors, like `Module javafx.web not found`
-or a segmentation fault, you are likely not pointing to the right folder. Try opening the folder and check that
-it contains several .jar files, such as `javafx.controls.jar`.
+If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
