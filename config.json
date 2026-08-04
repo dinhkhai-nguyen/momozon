@@ -1,0 +1,17 @@
+{
+  "serverUrl" : "http://localhost:8080",
+  "language" : "ENGLISH",
+  "favourites" : [ ],
+  "shoppingList" : {
+    "shoppingList" : [ ]
+  },
+  "shoppingPresets" : [ ],
+  "languageFilter" : [ ],
+  "scales" : {
+    "52" : 1.0,
+    "103" : 1.0,
+    "152" : 1.0,
+    "202" : 1.0
+  },
+  "savedSearches" : [ ]
+}
