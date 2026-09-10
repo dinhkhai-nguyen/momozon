@@ -4,7 +4,7 @@ This project contains:
 
 - `commons`: shared Java domain classes
 - `server`: Spring Boot backend
-- `web`: React frontend built with Vite
+- `client`: React frontend built with Vite
 
 ## Requirements
 
