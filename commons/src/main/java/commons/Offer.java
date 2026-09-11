@@ -1,6 +1,7 @@
 package commons;
 
 import java.math.BigDecimal;
+import java.time.Instant;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -19,7 +20,8 @@ import jakarta.persistence.Table;
 @Table(
         indexes = {
                 @Index(columnList = "product_id, price"),
-                @Index(columnList = "supplier_id")
+                @Index(columnList = "supplier_id"),
+                @Index(columnList = "last_checked_at")
         }
 )
 public class Offer {
@@ -37,6 +39,9 @@ public class Offer {
 
     private Integer estimatedShippingDays;
 
+    @Column(name = "last_checked_at", nullable = false)
+    private Instant lastCheckedAt;
+
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "product_id", nullable = false)
     private Product product;
@@ -53,13 +58,15 @@ public class Offer {
             Supplier supplier,
             BigDecimal price,
             AvailabilityStatus availability,
-            Integer estimatedShippingDays
+            Integer estimatedShippingDays,
+            Instant lastCheckedAt
     ) {
         this.product = product;
         this.supplier = supplier;
         this.price = price;
         this.availability = availability;
         this.estimatedShippingDays = estimatedShippingDays;
+        this.lastCheckedAt = lastCheckedAt;
     }
 
     public Long getId() {
@@ -76,6 +83,10 @@ public class Offer {
 
     public Integer getEstimatedShippingDays() {
         return estimatedShippingDays;
+    }
+
+    public Instant getLastCheckedAt() {
+        return lastCheckedAt;
     }
 
     public Product getProduct() {
@@ -96,5 +107,9 @@ public class Offer {
 
     public void setEstimatedShippingDays(Integer estimatedShippingDays) {
         this.estimatedShippingDays = estimatedShippingDays;
+    }
+
+    public void setLastCheckedAt(Instant lastCheckedAt) {
+        this.lastCheckedAt = lastCheckedAt;
     }
 }
