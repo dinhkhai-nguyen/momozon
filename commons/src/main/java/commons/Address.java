@@ -1,11 +1,18 @@
 package commons;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import jakarta.persistence.*;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Index;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.Table;
 
 @Entity
 @Table(
-        name = "addresses",
         indexes = {
                 @Index(columnList = "user_id")
         }
@@ -16,86 +23,102 @@ public class Address {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @Column(nullable = false, length = 255)
+    @Column(nullable = false)
     private String street;
 
-    @Column(nullable = false, length = 50)
+    @Column(nullable = false)
     private String houseNumber;
 
-    @Column(nullable = false, length = 100)
+    @Column(nullable = false)
     private String city;
 
-    @Column(nullable = false, length = 100)
-    private String country;
+    @Column(nullable = false)
+    private String province;
 
-    @Column(length = 20)
+    @Column(nullable = false)
     private String postalCode;
 
-    @JsonIgnore
+    @Column(nullable = false)
+    private String country;
+
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "user_id", nullable = false)
+    @JoinColumn(nullable = false)
     private User user;
 
     protected Address() {
     }
 
-    public Address(String street, String houseNumber, String city, String country, String postalCode) {
+    public Address(
+            User user,
+            String street,
+            String houseNumber,
+            String city,
+            String province,
+            String postalCode,
+            String country
+    ) {
+        this.user = user;
         this.street = street;
         this.houseNumber = houseNumber;
         this.city = city;
-        this.country = country;
+        this.province = province;
         this.postalCode = postalCode;
+        this.country = country;
     }
 
     public Long getId() {
         return id;
     }
 
-    public String getStreet() {
-        return street;
-    }
-
-    public String getHouseNumber() {
-        return houseNumber;
-    }
-
-    public String getCity() {
-        return city;
-    }
-
-    public String getCountry() {
-        return country;
-    }
-
-    public String getPostalCode() {
-        return postalCode;
-    }
-
     public User getUser() {
         return user;
+    }
+
+    public String getStreet() {
+        return street;
     }
 
     public void setStreet(String street) {
         this.street = street;
     }
 
+    public String getHouseNumber() {
+        return houseNumber;
+    }
+
     public void setHouseNumber(String houseNumber) {
         this.houseNumber = houseNumber;
+    }
+
+    public String getCity() {
+        return city;
     }
 
     public void setCity(String city) {
         this.city = city;
     }
 
-    public void setCountry(String country) {
-        this.country = country;
+    public String getProvince() {
+        return province;
+    }
+
+    public void setProvince(String province) {
+        this.province = province;
+    }
+
+    public String getPostalCode() {
+        return postalCode;
     }
 
     public void setPostalCode(String postalCode) {
         this.postalCode = postalCode;
     }
 
-    public void setUser(User user) {
-        this.user = user;
+    public String getCountry() {
+        return country;
+    }
+
+    public void setCountry(String country) {
+        this.country = country;
     }
 }
