@@ -1,22 +1,22 @@
-package server.ingestion;
+package server.ingestion.kroger;
 
 public class KrogerFetchRequest {
 
     private String locationId;
     private String searchTerm;
-    private Integer limit;
-    private Integer offset;
+    private int offset;
+    private int limit;
 
     public KrogerFetchRequest(
             String locationId,
             String searchTerm,
-            Integer limit,
-            Integer offset
+            int offset,
+            int limit
     ) {
         this.locationId = locationId;
         this.searchTerm = searchTerm;
-        this.limit = limit;
         this.offset = offset;
+        this.limit = limit;
     }
 
     public String getLocationId() {
@@ -27,11 +27,11 @@ public class KrogerFetchRequest {
         return searchTerm;
     }
 
-    public Integer getLimit() {
-        return limit;
+    public int getOffset() {
+        return offset;
     }
 
-    public Integer getOffset() {
-        return offset;
+    public int getLimit() {
+        return limit;
     }
 }
