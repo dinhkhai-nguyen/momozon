@@ -2,14 +2,14 @@ package server.ingestion;
 
 import java.time.Instant;
 
-public class RawSupplierData {
+public class RawData {
 
     private String supplier;
     private DataFormat format;
     private String payload;
     private Instant fetchedAt;
 
-    public RawSupplierData(String supplier, DataFormat format, String payload, Instant fetchedAt) {
+    public RawData(String supplier, DataFormat format, String payload, Instant fetchedAt) {
         this.supplier = supplier;
         this.format = format;
         this.payload = payload;
