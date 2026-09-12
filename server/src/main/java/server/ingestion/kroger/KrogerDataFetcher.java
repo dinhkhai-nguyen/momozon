@@ -2,8 +2,8 @@ package server.ingestion.kroger;
 
 import org.springframework.stereotype.Component;
 import server.ingestion.DataFormat;
-import server.ingestion.RawSupplierData;
-import server.ingestion.SupplierDataFetcher;
+import server.ingestion.RawData;
+import server.ingestion.DataFetcher;
 
 import java.io.IOException;
 import java.net.URLEncoder;
@@ -15,7 +15,7 @@ import java.nio.charset.StandardCharsets;
 import java.time.Instant;
 
 @Component
-public class KrogerDataFetcher implements SupplierDataFetcher<KrogerFetchRequest> {
+public class KrogerDataFetcher implements DataFetcher<KrogerFetchRequest> {
 
     private final KrogerAuth auth;
     private final HttpClient httpClient;
@@ -26,7 +26,7 @@ public class KrogerDataFetcher implements SupplierDataFetcher<KrogerFetchRequest
     }
 
     @Override
-    public RawSupplierData fetch(KrogerFetchRequest request) {
+    public RawData fetch(KrogerFetchRequest request) {
 
         String encodedTerm = URLEncoder.encode(
                 request.getSearchTerm(),
@@ -53,7 +53,7 @@ public class KrogerDataFetcher implements SupplierDataFetcher<KrogerFetchRequest
         try {
             HttpResponse<String> response = httpClient.send(httpRequest, HttpResponse.BodyHandlers.ofString());
 
-            return new RawSupplierData(
+            return new RawData(
                     "KROGER",
                     DataFormat.JSON,
                     response.body(),

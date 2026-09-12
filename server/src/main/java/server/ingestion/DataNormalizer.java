@@ -1,4 +1,8 @@
 package server.ingestion;
 
-public interface DataConverter {
+import java.util.List;
+
+public interface DataNormalizer {
+
+    List<NormalizedData> normalize(RawData rawData);
 }

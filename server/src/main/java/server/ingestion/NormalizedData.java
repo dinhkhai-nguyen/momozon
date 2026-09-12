@@ -5,7 +5,7 @@ import commons.AvailabilityStatus;
 import java.math.BigDecimal;
 import java.time.Instant;
 
-public class NormalizedSupplierData {
+public class NormalizedData {
 
     private String supplier;
 
@@ -14,29 +14,25 @@ public class NormalizedSupplierData {
     private String modelNumber;
     private String gtin;
     private String description;
-    private String category;
 
     private BigDecimal price;
     private String currency;
     private AvailabilityStatus availability;
-    private Integer estimatedShippingDays;
 
     private String productUrl;
 
     private Instant fetchedAt;
 
-    public NormalizedSupplierData(
+    public NormalizedData(
             String supplier,
             String name,
             String brand,
             String modelNumber,
             String gtin,
             String description,
-            String category,
             BigDecimal price,
             String currency,
             AvailabilityStatus availability,
-            Integer estimatedShippingDays,
             String productUrl,
             Instant fetchedAt
     ) {
@@ -46,11 +42,9 @@ public class NormalizedSupplierData {
         this.modelNumber = modelNumber;
         this.gtin = gtin;
         this.description = description;
-        this.category = category;
         this.price = price;
         this.currency = currency;
         this.availability = availability;
-        this.estimatedShippingDays = estimatedShippingDays;
         this.productUrl = productUrl;
         this.fetchedAt = fetchedAt;
     }
@@ -79,10 +73,6 @@ public class NormalizedSupplierData {
         return description;
     }
 
-    public String getCategory() {
-        return category;
-    }
-
     public BigDecimal getPrice() {
         return price;
     }
@@ -93,10 +83,6 @@ public class NormalizedSupplierData {
 
     public AvailabilityStatus getAvailability() {
         return availability;
-    }
-
-    public Integer getEstimatedShippingDays() {
-        return estimatedShippingDays;
     }
 
     public String getProductUrl() {
