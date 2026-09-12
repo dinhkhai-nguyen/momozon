@@ -33,6 +33,9 @@ public class Offer {
     @Column(nullable = false, precision = 19, scale = 2)
     private BigDecimal price;
 
+    @Column(nullable = false)
+    private String currency;
+
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
     private AvailabilityStatus availability;
@@ -57,6 +60,7 @@ public class Offer {
             Product product,
             Supplier supplier,
             BigDecimal price,
+            String currency,
             AvailabilityStatus availability,
             Integer estimatedShippingDays,
             Instant lastCheckedAt
@@ -64,6 +68,7 @@ public class Offer {
         this.product = product;
         this.supplier = supplier;
         this.price = price;
+        this.currency = currency;
         this.availability = availability;
         this.estimatedShippingDays = estimatedShippingDays;
         this.lastCheckedAt = lastCheckedAt;
@@ -75,6 +80,10 @@ public class Offer {
 
     public BigDecimal getPrice() {
         return price;
+    }
+
+    public String getCurrency() {
+        return currency;
     }
 
     public AvailabilityStatus getAvailability() {
@@ -99,6 +108,10 @@ public class Offer {
 
     public void setPrice(BigDecimal price) {
         this.price = price;
+    }
+
+    public void setCurrency(String currency) {
+        this.currency = currency;
     }
 
     public void setAvailability(AvailabilityStatus availability) {
