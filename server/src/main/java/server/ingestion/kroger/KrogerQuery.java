@@ -1,13 +1,13 @@
 package server.ingestion.kroger;
 
-public class KrogerFetchRequest {
+public class KrogerQuery {
 
     private String locationId;
     private String searchTerm;
     private int offset;
     private int limit;
 
-    public KrogerFetchRequest(
+    public KrogerQuery(
             String locationId,
             String searchTerm,
             int offset,

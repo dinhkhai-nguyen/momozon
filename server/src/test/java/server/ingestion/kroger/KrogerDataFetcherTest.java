@@ -23,8 +23,8 @@ class KrogerDataFetcherTest {
     @Test
     void shouldFetchKrogerProducts() {
 
-        KrogerFetchRequest request =
-                new KrogerFetchRequest(
+        KrogerQuery request =
+                new KrogerQuery(
                         "01400513",
                         "milk",
                         0,

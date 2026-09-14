@@ -15,7 +15,7 @@ import java.nio.charset.StandardCharsets;
 import java.time.Instant;
 
 @Component
-public class KrogerDataFetcher implements DataFetcher<KrogerFetchRequest> {
+public class KrogerDataFetcher implements DataFetcher<KrogerQuery> {
 
     private final KrogerAuth auth;
     private final HttpClient httpClient;
@@ -26,19 +26,18 @@ public class KrogerDataFetcher implements DataFetcher<KrogerFetchRequest> {
     }
 
     @Override
-    public RawData fetch(KrogerFetchRequest request) {
+    public RawData fetch(KrogerQuery query) {
 
         String encodedTerm = URLEncoder.encode(
-                request.getSearchTerm(),
+                query.getSearchTerm(),
                 StandardCharsets.UTF_8
         );
 
-        String url =
-                "https://api.kroger.com/v1/products"
-                        + "?filter.term=" + encodedTerm
-                        + "&filter.locationId=" + request.getLocationId()
-                        + "&filter.start=" + request.getOffset()
-                        + "&filter.limit=" + request.getLimit();
+        String url = "https://api.kroger.com/v1/products"
+                + "?filter.term=" + encodedTerm
+                + "&filter.locationId=" + query.getLocationId()
+                + "&filter.start=" + query.getOffset()
+                + "&filter.limit=" + query.getLimit();
 
         URI uri = URI.create(url);
 
