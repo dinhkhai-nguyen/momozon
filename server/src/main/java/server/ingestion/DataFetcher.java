@@ -1,6 +1,6 @@
 package server.ingestion;
 
-public interface DataFetcher<R> {
+public interface DataFetcher<Q> {
 
-    RawData fetch(R request);
+    RawData fetch(Q query);
 }
