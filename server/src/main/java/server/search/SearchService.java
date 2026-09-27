@@ -1,6 +1,8 @@
 package server.search;
 
 import org.springframework.stereotype.Service;
+
+import server.search.dto.SearchQuery;
 import server.search.dto.SearchResult;
 
 @Service
@@ -14,13 +16,26 @@ public class SearchService {
         this.searchProvider = searchProvider;
     }
 
-    public SearchResult search(String query, String cursor) {
-        if (query == null || query.isBlank()) {
-            throw new IllegalArgumentException("Search query cannot be empty");
+    public SearchResult search(SearchQuery searchQuery) {
+        String normalizedQuery = null;
+
+        if (searchQuery.query() != null && !searchQuery.query().isBlank()) {
+            normalizedQuery = searchQuery.query()
+                    .trim()
+                    .replaceAll("\\s+", " ");
         }
 
-        String normalizedQuery = query.trim().replaceAll("\\s+", " ");
+        if (normalizedQuery == null && searchQuery.categoryId() == null) {
+            throw new IllegalArgumentException("A search query or category must be provided");
+        }
 
-        return searchProvider.search(normalizedQuery, cursor, RESULTS_PER_BATCH);
+        SearchQuery normalizedSearchQuery = new SearchQuery(
+                normalizedQuery,
+                searchQuery.categoryId(),
+                searchQuery.filters(),
+                searchQuery.cursor()
+        );
+
+        return searchProvider.search(normalizedSearchQuery, RESULTS_PER_BATCH);
     }
 }

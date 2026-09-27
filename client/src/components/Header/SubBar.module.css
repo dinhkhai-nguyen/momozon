@@ -1,0 +1,30 @@
+.subBar {
+    display: flex;
+    align-items: center;
+
+    min-height: 44px;
+
+    padding-inline: clamp(16px, 2vw, 28px);
+
+    background: var(--color-subnav);
+    color: white;
+}
+
+.categories {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+
+    min-height: 44px;
+    padding: 0;
+
+    border: 0;
+    background: transparent;
+
+    color: white;
+
+    font-size: 13px;
+    font-weight: 700;
+
+    cursor: pointer;
+}

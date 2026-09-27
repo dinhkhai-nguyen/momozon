@@ -10,10 +10,12 @@ import commons.AvailabilityStatus;
 import server.database.ProductRepository;
 import server.search.SearchProvider;
 import server.search.dto.ProductPreview;
+import server.search.dto.SearchQuery;
 import server.search.dto.SearchResult;
 
 @Component
-public class PostgresSearchProvider implements SearchProvider {
+public class PostgresSearchProvider
+        implements SearchProvider {
 
     private final ProductRepository productRepository;
 
@@ -22,16 +24,25 @@ public class PostgresSearchProvider implements SearchProvider {
     }
 
     @Override
-    public SearchResult search(String query, String cursor, int resultLimit) {
-        int page = cursor == null ? 0 : Integer.parseInt(cursor);
+    public SearchResult search(SearchQuery searchQuery, int batchSize) {
+        int page = searchQuery.cursor() == null ? 0 : Integer.parseInt(searchQuery.cursor());
 
-        Pageable pageable = PageRequest.of(page, resultLimit);
+        Pageable pageable = PageRequest.of(page, batchSize);
 
-        List<ProductPreview> products = productRepository.searchProducts(query, AvailabilityStatus.IN_STOCK, pageable);
+        List<ProductPreview> products = productRepository.searchProducts(
+                searchQuery.query(),
+                searchQuery.categoryId(),
+                AvailabilityStatus.IN_STOCK,
+                pageable
+        );
 
-        long totalResults = productRepository.countByNameContainingIgnoreCase(query);
+        long totalResults = productRepository.countSearchProducts(
+                searchQuery.query(),
+                searchQuery.categoryId(),
+                AvailabilityStatus.IN_STOCK
+        );
 
-        boolean hasMore = (long) (page + 1) * resultLimit < totalResults;
+        boolean hasMore = (long) (page + 1) * batchSize < totalResults;
 
         String nextCursor = hasMore ? String.valueOf(page + 1) : null;
 

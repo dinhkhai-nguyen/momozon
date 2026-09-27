@@ -1,0 +1,108 @@
+<svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 1235 650"
+>
+    <rect width="1235" height="650" fill="#FFFFFF"/>
+
+    <!-- 7 red stripes + 6 white stripes = 13 stripes -->
+    <g fill="#B31942">
+        <rect y="0" width="1235" height="50"/>
+        <rect y="100" width="1235" height="50"/>
+        <rect y="200" width="1235" height="50"/>
+        <rect y="300" width="1235" height="50"/>
+        <rect y="400" width="1235" height="50"/>
+        <rect y="500" width="1235" height="50"/>
+        <rect y="600" width="1235" height="50"/>
+    </g>
+
+    <!-- Canton -->
+    <rect width="494" height="350" fill="#0A3161"/>
+
+    <defs>
+        <path
+                id="star"
+                fill="#FFFFFF"
+                d="
+                M 0,-20
+                L 4.49,-6.18
+                L 19.02,-6.18
+                L 7.27,2.36
+                L 11.76,16.18
+                L 0,7.64
+                L -11.76,16.18
+                L -7.27,2.36
+                L -19.02,-6.18
+                L -4.49,-6.18
+                Z
+            "
+        />
+    </defs>
+
+    <!-- Row 1: 6 stars -->
+    <use href="#star" transform="translate(41.17 35)"/>
+    <use href="#star" transform="translate(123.5 35)"/>
+    <use href="#star" transform="translate(205.83 35)"/>
+    <use href="#star" transform="translate(288.17 35)"/>
+    <use href="#star" transform="translate(370.5 35)"/>
+    <use href="#star" transform="translate(452.83 35)"/>
+
+    <!-- Row 2: 5 stars -->
+    <use href="#star" transform="translate(82.33 70)"/>
+    <use href="#star" transform="translate(164.67 70)"/>
+    <use href="#star" transform="translate(247 70)"/>
+    <use href="#star" transform="translate(329.33 70)"/>
+    <use href="#star" transform="translate(411.67 70)"/>
+
+    <!-- Row 3: 6 stars -->
+    <use href="#star" transform="translate(41.17 105)"/>
+    <use href="#star" transform="translate(123.5 105)"/>
+    <use href="#star" transform="translate(205.83 105)"/>
+    <use href="#star" transform="translate(288.17 105)"/>
+    <use href="#star" transform="translate(370.5 105)"/>
+    <use href="#star" transform="translate(452.83 105)"/>
+
+    <!-- Row 4: 5 stars -->
+    <use href="#star" transform="translate(82.33 140)"/>
+    <use href="#star" transform="translate(164.67 140)"/>
+    <use href="#star" transform="translate(247 140)"/>
+    <use href="#star" transform="translate(329.33 140)"/>
+    <use href="#star" transform="translate(411.67 140)"/>
+
+    <!-- Row 5: 6 stars -->
+    <use href="#star" transform="translate(41.17 175)"/>
+    <use href="#star" transform="translate(123.5 175)"/>
+    <use href="#star" transform="translate(205.83 175)"/>
+    <use href="#star" transform="translate(288.17 175)"/>
+    <use href="#star" transform="translate(370.5 175)"/>
+    <use href="#star" transform="translate(452.83 175)"/>
+
+    <!-- Row 6: 5 stars -->
+    <use href="#star" transform="translate(82.33 210)"/>
+    <use href="#star" transform="translate(164.67 210)"/>
+    <use href="#star" transform="translate(247 210)"/>
+    <use href="#star" transform="translate(329.33 210)"/>
+    <use href="#star" transform="translate(411.67 210)"/>
+
+    <!-- Row 7: 6 stars -->
+    <use href="#star" transform="translate(41.17 245)"/>
+    <use href="#star" transform="translate(123.5 245)"/>
+    <use href="#star" transform="translate(205.83 245)"/>
+    <use href="#star" transform="translate(288.17 245)"/>
+    <use href="#star" transform="translate(370.5 245)"/>
+    <use href="#star" transform="translate(452.83 245)"/>
+
+    <!-- Row 8: 5 stars -->
+    <use href="#star" transform="translate(82.33 280)"/>
+    <use href="#star" transform="translate(164.67 280)"/>
+    <use href="#star" transform="translate(247 280)"/>
+    <use href="#star" transform="translate(329.33 280)"/>
+    <use href="#star" transform="translate(411.67 280)"/>
+
+    <!-- Row 9: 6 stars -->
+    <use href="#star" transform="translate(41.17 315)"/>
+    <use href="#star" transform="translate(123.5 315)"/>
+    <use href="#star" transform="translate(205.83 315)"/>
+    <use href="#star" transform="translate(288.17 315)"/>
+    <use href="#star" transform="translate(370.5 315)"/>
+    <use href="#star" transform="translate(452.83 315)"/>
+</svg>

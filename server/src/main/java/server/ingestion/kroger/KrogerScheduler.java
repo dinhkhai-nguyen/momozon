@@ -21,7 +21,7 @@ public class KrogerScheduler {
         this.dataNormalizer = dataNormalizer;
     }
 
-    @Scheduled(initialDelay = 1000L, fixedDelay = 30 * 60 * 1000L)
+//    @Scheduled(initialDelay = 1000L, fixedDelay = 30 * 60 * 1000L)
     public void schedule() {
         KrogerQuery query = new KrogerQuery(
                 "01400513",
